@@ -93,11 +93,11 @@ function RockThrower() {
     }
 
     // Ensure rock thrower stays within the screen
-    while (this.x<0+5) {
+    while (this.x<0+20) {
       this.x = this.x + 0.1;
     }
 
-    while (this.x>1920-5) {
+    while (this.x>1920-190-20) {
       this.x = this.x - 0.1;
     }
 
@@ -124,7 +124,7 @@ function RockThrower() {
       this.movingRight = !this.movingRight;
     }
 
-    this.x = Math.floor(Math.random()*1920);
+    this.x = Math.floor(Math.random()*(1920-190-20));
   };
 
 }

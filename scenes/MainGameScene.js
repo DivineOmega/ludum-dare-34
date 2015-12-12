@@ -55,7 +55,7 @@ function MainGameScene() {
     // Update rocks
     for (i = 0; i < this.rocks.length; i++) {
       this.rocks[i].update(time);
-      if (this.rocks[i].y<0) {
+      if (this.rocks[i].y<0 || this.rocks[i].x<0 || this.rocks[i].x>1920-190) {
         this.rocks.splice(i, 1);
         i--;
       }
@@ -81,10 +81,11 @@ function MainGameScene() {
   this.render = function() {
     this.convergame.draw.blankCanvas('#7ec0ee'); // sky blue
 
-    this.convergame.draw.rectangle(0, 1080-100, 1920, 100, '#000', '#7cfc00');
-    this.convergame.draw.rectangle(1920-190, 0, 190, 1080-100, '#000', '#b2b2b2');
+    this.convergame.draw.rectangle(0, 1080-100, 1920, 100, '#000', '#7cfc00'); // grass
 
     this.playerBalloon.render();
+
+    this.convergame.draw.rectangle(1920-190, 0, 190, 1080-100, '#000', '#b2b2b2'); // building
 
     this.convergame.draw.rectangle(1920-170, 1080*0.5, 150, 150, '#000', '#7ec066');
     this.convergame.draw.text(1920-170+7+70, 1080*0.5+85, '#333', 32, 'sans-serif', 'center', 'Left/Right');
