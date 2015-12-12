@@ -7,8 +7,11 @@ function RockThrower() {
 
   this.movementTimer = 0;
   this.changeDirectionTimer = 0;
+  this.throwTimer = 0;
 
   this.movingRight = true;
+
+  this.rocks = [];
 
   this.update = function(time) {
 
@@ -36,6 +39,20 @@ function RockThrower() {
       this.changeDirectionTimer = 0;
     }
 
+    // Perform rock throw
+    this.throwTimer += time;
+    if (this.throwTimer>5) {
+
+      var rock = new Rock();
+
+      rock.init(this.convergame);
+      rock.setPosition(this.x + 15, this.y - 20);
+
+      this.rocks.push(rock);
+
+      this.throwTimer = 0;
+    }
+
     // Ensure rock thrower stays within the screen
     while (this.x-this.radius<0+5) {
       this.x = this.x + 0.1;
@@ -43,6 +60,11 @@ function RockThrower() {
 
     while (this.x+this.radius>1920-5) {
       this.x = this.x - 0.1;
+    }
+
+    // Update rocks
+    for (var i = 0; i < this.rocks.length; i++) {
+      this.rocks[i].update(time);
     }
 
   };
@@ -58,6 +80,11 @@ function RockThrower() {
     this.convergame.draw.line(centreX, centreY + 20, centreX - 15, centreY + 40, '#000', 3);
     this.convergame.draw.line(centreX, centreY + 20, centreX + 15, centreY + 40, '#000', 3);
     this.convergame.draw.circle(centreX, centreY - 30, 7.5, '#000', '#FFF', 5);
+
+    // Render rocks
+    for (var i = 0; i < this.rocks.length; i++) {
+      this.rocks[i].render();
+    }
 
   };
 

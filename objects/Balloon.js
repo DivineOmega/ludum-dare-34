@@ -88,6 +88,10 @@ function Balloon() {
 
   this.init = function(convergame) {
     this.convergame = convergame;
+
+    if (Math.floor(Math.random()*100)<50) {
+      this.movingRight = !this.movingRight;
+    }
   };
 
 }
