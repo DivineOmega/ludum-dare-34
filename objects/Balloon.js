@@ -3,7 +3,7 @@ function Balloon() {
   this.convergame = null;
 
   this.x = 1920/2;
-  this.y = 100;
+  this.y = 250;
 
   this.radius = 20;
 
@@ -13,20 +13,30 @@ function Balloon() {
   this.movingRight = true;
   this.movingUp = true;
 
+  this.toggleLeftRight = function() {
+    this.movingRight = !this.movingRight;
+  };
+
+  this.toggleDownUp = function() {
+    this.movingUp = !this.movingUp;
+  };
+
   this.update = function(time) {
 
+    // Grow the balloon over time
     this.growthTimer += time;
 
     if (this.growthTimer>=0.1) {
-      this.radius += 0.15;
+      this.radius += 0.15 * 0.25;
       this.growthTimer = 0;
     }
 
+    // Perform movement
     this.moveTimer += time;
 
-    if (this.moveTimer>=0.05) {
-      var xOffset = 0.75;
-      var yOffset = -0.3;
+    if (this.moveTimer>=0.025) {
+      var xOffset = 0.75 * 4;
+      var yOffset = -0.3 * 4;
 
       if (!this.movingRight) {
         xOffset = -xOffset;
@@ -42,6 +52,7 @@ function Balloon() {
       this.moveTimer = 0;
     }
 
+    // Ensure balloon stays within the screen
     while (this.y-this.radius<0+5) {
       this.y = this.y + 0.1;
     }
@@ -68,7 +79,7 @@ function Balloon() {
     this.convergame.draw.circle(centreX, centreY, this.radius, '#000', '#F00', 5);
 
     var x1 = centreX;
-    var y1 = centreY + this.radius + 3.5;
+    var y1 = centreY + this.radius + (1.5 * (this.radius/40));
     var x2 = x1;
     var y2 = y1 + 200;
 
