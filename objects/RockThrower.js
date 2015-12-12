@@ -54,11 +54,11 @@ function RockThrower() {
     }
 
     // Ensure rock thrower stays within the screen
-    while (this.x-this.radius<0+5) {
+    while (this.x<0+5) {
       this.x = this.x + 0.1;
     }
 
-    while (this.x+this.radius>1920-5) {
+    while (this.x>1920-5) {
       this.x = this.x - 0.1;
     }
 
