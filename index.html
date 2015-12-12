@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>LD34 Entry</title>
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <canvas id="mainCanvas" width="1920" height="1080">Your browser and/or browser does not seem to support HTML5 canvas! :(</canvas>
+
+    <script src="convergame-engine/convergame.min.js"></script>
+
+    <script src="scenes/MainGameScene.js"></script>
+
+    <script>
+      var mainCanvas = document.getElementById('mainCanvas');
+
+      var convergame = new Convergame(mainCanvas);
+      convergame.init();
+
+      var mainGameScene = new MainGameScene();
+
+      convergame.scene.changeScene(mainGameScene);
+
+      convergame.startMainGameLoop();
+
+    </script>
+
+  </body>
+
+</html>
