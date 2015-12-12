@@ -25,6 +25,8 @@ function MainGameScene() {
   this.render = function() {
     this.convergame.draw.blankCanvas('#7ec0ee'); // sky blue
 
+    this.convergame.draw.rectangle(0, 1080-100, 1920, 1080, '#000', '#7cfc00');
+
     this.playerBalloon.render();
 
     this.convergame.draw.rectangle(1920-170, 1080*0.5, 150, 150, '#000', '#7ec066');
