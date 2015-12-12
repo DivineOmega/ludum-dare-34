@@ -4,6 +4,7 @@ function MainGameScene() {
 
   this.playerBalloon = null;
   this.rockThrower = null;
+  this.rocks = [];
 
   this.update = function(time) {
 
@@ -22,6 +23,15 @@ function MainGameScene() {
     this.playerBalloon.update(time);
     this.rockThrower.update(time);
 
+    // Update rocks
+    for (var i = 0; i < this.rocks.length; i++) {
+      this.rocks[i].update(time);
+      if (this.rocks[i].y<0) {
+        this.rocks.splice(i, 1);
+        i--;
+      }
+    }
+
   };
 
   this.render = function() {
@@ -37,6 +47,11 @@ function MainGameScene() {
 
     this.convergame.draw.rectangle(1920-170, 1080*0.5+170, 150, 150, '#000', '#7ec066');
     this.convergame.draw.text(1920-170+7+70, 1080*0.5+170+85, '#333', 32, 'sans-serif', 'center', 'Up/Down');
+
+    // Render rocks
+    for (var i = 0; i < this.rocks.length; i++) {
+      this.rocks[i].render();
+    }
 
   };
 
