@@ -10,11 +10,17 @@ function MainGameScene() {
 
   this.addNewRockThrowersTimer = 0;
 
+  this.gameTime = 0;
+
   this.update = function(time) {
 
     // Game over checking
     if (this.playerBalloon.destroyed && this.playerBalloon.y < -400 ) {
       this.convergame.scene.changeScene(mainGameScene);
+    }
+
+    if (!this.playerBalloon.destroyed) {
+      this.gameTime += time;
     }
 
     // Add new rock throwers
@@ -87,6 +93,9 @@ function MainGameScene() {
 
     this.convergame.draw.rectangle(1920-190, 0, 190, 1080-100, '#000', '#b2b2b2'); // building
 
+    this.convergame.draw.text(1920-190+10, 40, '#000', 32, 'sans-serif', 'left', 'Time:');
+    this.convergame.draw.text(1920-190+10+150, 80, '#000', 32, 'sans-serif', 'right', this.gameTime.toFixed(2));
+
     this.convergame.draw.rectangle(1920-170, 1080*0.5, 150, 150, '#000', '#7ec066');
     this.convergame.draw.text(1920-170+7+70, 1080*0.5+85, '#333', 32, 'sans-serif', 'center', 'Left/Right');
 
@@ -113,6 +122,10 @@ function MainGameScene() {
 
     this.rockThrowers = [];
     this.rocks = [];
+
+    this.addNewRockThrowersTimer = 0;
+
+    this.gameTime = 0;
   };
 
 }
