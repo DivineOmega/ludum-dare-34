@@ -11,6 +11,8 @@ function Rock() {
 
   this.movingRight = true;
 
+  this.xOffset = 0;
+
   this.update = function(time) {
 
     // Perform movement
@@ -20,6 +22,7 @@ function Rock() {
       var yOffset = -0.75 * 9;
 
       this.y += yOffset;
+      this.x += this.xOffset;
 
       this.movementTimer = 0;
     }
@@ -43,6 +46,10 @@ function Rock() {
   this.setPosition = function(x, y) {
     this.x = x;
     this.y = y;
+  };
+
+  this.setXOffset = function(xOffset) {
+    this.xOffset = xOffset;
   };
 
 }

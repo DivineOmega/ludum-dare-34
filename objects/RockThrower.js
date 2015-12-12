@@ -48,6 +48,34 @@ function RockThrower() {
       rock.init(this.convergame);
       rock.setPosition(this.x + 15, this.y - 20);
 
+      if (this.x > mainGameScene.playerBalloon.x+100) {
+        rock.setXOffset(-2);
+      }
+      if (this.x < mainGameScene.playerBalloon.x-100) {
+        rock.setXOffset(2);
+      }
+
+      if (this.x > mainGameScene.playerBalloon.x+300) {
+        rock.setXOffset(-6);
+      }
+      if (this.x < mainGameScene.playerBalloon.x-300) {
+        rock.setXOffset(6);
+      }
+
+      if (this.x > mainGameScene.playerBalloon.x+600) {
+        rock.setXOffset(-9);
+      }
+      if (this.x < mainGameScene.playerBalloon.x-600) {
+        rock.setXOffset(9);
+      }
+
+      if (this.x > mainGameScene.playerBalloon.x+900) {
+        rock.setXOffset(-12);
+      }
+      if (this.x < mainGameScene.playerBalloon.x-900) {
+        rock.setXOffset(12);
+      }
+
       this.rocks.push(rock);
 
       this.throwTimer = 0;
