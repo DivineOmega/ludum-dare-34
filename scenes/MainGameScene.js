@@ -32,6 +32,21 @@ function MainGameScene() {
       }
     }
 
+    // Check for rock balloon collision
+    for (i = 0; i < this.rocks.length; i++) {
+      if (this.rocks[i].x > this.playerBalloon.x-this.playerBalloon.radius &&
+          this.rocks[i].x < this.playerBalloon.x+this.playerBalloon.radius &&
+          this.rocks[i].y > this.playerBalloon.y-this.playerBalloon.radius &&
+          this.rocks[i].y < this.playerBalloon.y+this.playerBalloon.radius) {
+
+        this.playerBalloon.destroy();
+
+        this.rocks.splice(i, 1);
+        i--;
+
+      }
+    }
+
   };
 
   this.render = function() {

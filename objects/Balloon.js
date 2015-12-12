@@ -9,9 +9,16 @@ function Balloon() {
 
   this.growthTimer = 0;
   this.moveTimer = 0;
+  this.destroyTimer = 0;
 
   this.movingRight = true;
   this.movingUp = true;
+
+  this.destroyed = false;
+
+  this.destroy = function() {
+    this.destroyed = true;
+  };
 
   this.toggleLeftRight = function() {
     this.movingRight = !this.movingRight;
@@ -22,6 +29,24 @@ function Balloon() {
   };
 
   this.update = function(time) {
+
+    if(this.destroyed) {
+      this.destroyTimer += time;
+
+      if (this.destroyTimer>=0.05) {
+
+        this.y -= 0.3 * 12;
+        this.x += -4 + (Math.floor(Math.random()*8+1));
+
+        var radiusReduction = 0.125;
+
+        if (this.radius >= radiusReduction) {
+          this.radius -= radiusReduction;
+        }
+      }
+
+      return;
+    }
 
     // Grow the balloon over time
     this.growthTimer += time;
