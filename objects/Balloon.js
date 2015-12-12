@@ -86,12 +86,12 @@ function Balloon() {
       this.y = this.y - 0.1;
     }
 
-    while (this.x-this.radius<0+5) {
-      this.x = this.x + 0.1;
+    if (this.x<0+this.radius+5) {
+      this.x = 1920-190-this.radius-5;
     }
 
-    while (this.x+this.radius>1920-190-5) {
-      this.x = this.x - 0.1;
+    if (this.x>1920-190-this.radius-5) {
+      this.x = 0+this.radius+5;
     }
 
   };
