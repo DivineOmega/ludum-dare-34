@@ -57,7 +57,7 @@ function Balloon() {
       this.y = this.y + 0.1;
     }
 
-    while (this.y+this.radius>1080-5) {
+    while (this.y+this.radius>(1080*0.60)-5) {
       this.y = this.y - 0.1;
     }
 
