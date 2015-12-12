@@ -117,6 +117,11 @@ function Balloon() {
     if (Math.floor(Math.random()*100)<50) {
       this.movingRight = !this.movingRight;
     }
+
+    if (Math.floor(Math.random()*100)<50) {
+      this.movingUp = !this.movingUp;
+    }
+
   };
 
 }
