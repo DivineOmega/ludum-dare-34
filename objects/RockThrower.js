@@ -89,6 +89,8 @@ function RockThrower() {
 
       mainGameScene.rocks.push(rock);
 
+      mainGameScene.throwSound.play();
+
       this.throwTimer = 0;
     }
 

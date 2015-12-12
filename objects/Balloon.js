@@ -18,6 +18,7 @@ function Balloon() {
 
   this.destroy = function() {
     this.destroyed = true;
+    mainGameScene.balloonDestroySound.play();
   };
 
   this.toggleLeftRight = function() {
