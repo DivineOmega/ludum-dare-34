@@ -13,6 +13,11 @@ function RockThrower() {
 
   this.update = function(time) {
 
+    // Don't update is balloon is destroyed
+    if (mainGameScene.playerBalloon.destroyed) {
+      return;
+    }
+
     // Perform movement
     this.movementTimer += time;
     if(this.movementTimer>0.025) {
@@ -110,6 +115,8 @@ function RockThrower() {
     if (Math.floor(Math.random()*100)<50) {
       this.movingRight = !this.movingRight;
     }
+
+    this.x = Math.floor(Math.random()*1920);
   };
 
 }
