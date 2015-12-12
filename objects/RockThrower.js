@@ -73,10 +73,18 @@ function RockThrower() {
       }
 
       if (this.x > mainGameScene.playerBalloon.x+900) {
-        rock.setXOffset(-12);
+        if (mainGameScene.playerBalloon.y>1080*0.5) {
+          rock.setXOffset(-20);
+        } else {
+          rock.setXOffset(-12);
+        }
       }
       if (this.x < mainGameScene.playerBalloon.x-900) {
-        rock.setXOffset(12);
+        if (mainGameScene.playerBalloon.y>1080*0.5) {
+          rock.setXOffset(20);
+        } else {
+          rock.setXOffset(12);
+        }
       }
 
       mainGameScene.rocks.push(rock);

@@ -52,14 +52,14 @@ function Balloon() {
     this.growthTimer += time;
 
     if (this.growthTimer>=0.1) {
-      this.radius += 0.15 * 0.25;
+      this.radius += 0.15 * 0.45;
       this.growthTimer = 0;
     }
 
     // Perform movement
     this.moveTimer += time;
 
-    if (this.moveTimer>=0.025) {
+    if (this.moveTimer>=0.0125) {
       var xOffset = 0.75 * 4;
       var yOffset = -0.3 * 4;
 
@@ -90,7 +90,7 @@ function Balloon() {
       this.x = this.x + 0.1;
     }
 
-    while (this.x+this.radius>1920-5) {
+    while (this.x+this.radius>1920-190-5) {
       this.x = this.x - 0.1;
     }
 

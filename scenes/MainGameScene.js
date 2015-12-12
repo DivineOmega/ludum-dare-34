@@ -81,7 +81,8 @@ function MainGameScene() {
   this.render = function() {
     this.convergame.draw.blankCanvas('#7ec0ee'); // sky blue
 
-    this.convergame.draw.rectangle(0, 1080-100, 1920, 1080, '#000', '#7cfc00');
+    this.convergame.draw.rectangle(0, 1080-100, 1920, 100, '#000', '#7cfc00');
+    this.convergame.draw.rectangle(1920-190, 0, 190, 1080-100, '#000', '#b2b2b2');
 
     this.playerBalloon.render();
 
@@ -109,6 +110,7 @@ function MainGameScene() {
     this.playerBalloon = new Balloon();
     this.playerBalloon.init(convergame);
 
+    this.rockThrowers = [];
     this.rocks = [];
   };
 
