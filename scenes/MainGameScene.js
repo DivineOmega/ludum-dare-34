@@ -8,6 +8,7 @@ function MainGameScene() {
 
   this.rockThrowerLimit = 2;
 
+  this.rockThrowerLimitIncreaseTimer = 0;
   this.addNewRockThrowersTimer = 0;
 
   this.gameTime = 0;
@@ -21,6 +22,14 @@ function MainGameScene() {
 
     if (!this.playerBalloon.destroyed) {
       this.gameTime += time;
+    }
+
+    // Increase rock thrower limit every so often
+    this.rockThrowerLimitIncreaseTimer += time;
+
+    if(this.rockThrowerLimitIncreaseTimer > 30) {
+      this.rockThrowerLimit++;
+      this.rockThrowerLimitIncreaseTimer = 0;
     }
 
     // Add new rock throwers
@@ -123,7 +132,10 @@ function MainGameScene() {
     this.rockThrowers = [];
     this.rocks = [];
 
+    this.rockThrowerLimit = 1;
+
     this.addNewRockThrowersTimer = 0;
+    this.rockThrowerLimitIncreaseTimer = 0;
 
     this.gameTime = 0;
   };
