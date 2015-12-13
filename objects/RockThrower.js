@@ -91,7 +91,10 @@ function RockThrower() {
 
       mainGameScene.rocks.push(rock);
 
-      this.throwSound.play();
+      if (this.throwSound.readyState>0) {
+        this.throwSound.currentTime = 0;
+        this.throwSound.play();
+      }
 
       this.throwTimer = 0;
     }
@@ -131,8 +134,6 @@ function RockThrower() {
     this.x = Math.floor(Math.random()*(1920-190-20));
     this.y += Math.floor(Math.random()*50);
 
-    this.throwSound.currentTime = 0;
-    this.throwSound.pause();
   };
 
   this.throwTimer = Math.random()*4;

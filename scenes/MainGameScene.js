@@ -56,7 +56,10 @@ function MainGameScene() {
         this.convergame.input.mouse.isLeftButtonPressed()) {
       this.playerBalloon.toggleLeftRight();
       this.convergame.input.mouse.resetButtonState();
-      this.windSound.play();
+      if (this.windSound.readyState>0) {
+        this.windSound.currentTime = 0;
+        this.windSound.play();
+      }
     }
 
     // Down up button handling
@@ -64,7 +67,10 @@ function MainGameScene() {
         this.convergame.input.mouse.isLeftButtonPressed()) {
       this.playerBalloon.toggleDownUp();
       this.convergame.input.mouse.resetButtonState();
-      this.windSound.play();
+      if (this.windSound.readyState>0) {
+        this.windSound.currentTime = 0;
+        this.windSound.play();
+      }
     }
 
     this.playerBalloon.update(time);
@@ -154,9 +160,6 @@ function MainGameScene() {
     this.rockThrowerLimitIncreaseTimer = 0;
 
     this.gameTime = 0;
-
-    mainGameScene.balloonDestroySound.currentTime = 0;
-    mainGameScene.balloonDestroySound.pause();
   };
 
   this.setDifficulty = function(difficulty) {

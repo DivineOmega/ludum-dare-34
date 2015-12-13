@@ -18,7 +18,10 @@ function Balloon() {
 
   this.destroy = function() {
     this.destroyed = true;
-    mainGameScene.balloonDestroySound.play();
+    if (mainGameScene.balloonDestroySound.readyState>0) {
+      mainGameScene.balloonDestroySound.currentTime = 0;
+      mainGameScene.balloonDestroySound.play();
+    }
   };
 
   this.toggleLeftRight = function() {
