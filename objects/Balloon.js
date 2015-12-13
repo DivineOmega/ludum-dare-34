@@ -53,7 +53,9 @@ function Balloon() {
     this.growthTimer += time;
 
     if (this.growthTimer>=0.1) {
-      this.radius += 0.15 * 0.45;
+      if (this.radius<1000) {
+          this.radius += 0.15 * 0.45;
+      }
       this.growthTimer = 0;
     }
 
