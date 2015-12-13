@@ -14,6 +14,7 @@ function MainGameScene() {
   this.gameTime = 0;
 
   this.balloonDestroySound = new Audio('audio/balloonDestroy.ogg');
+  this.windSound = new Audio('audio/wind.ogg');
 
   this.update = function(time) {
 
@@ -53,6 +54,7 @@ function MainGameScene() {
         this.convergame.input.mouse.isLeftButtonPressed()) {
       this.playerBalloon.toggleLeftRight();
       this.convergame.input.mouse.resetButtonState();
+      this.windSound.play();
     }
 
     // Down up button handling
@@ -60,6 +62,7 @@ function MainGameScene() {
         this.convergame.input.mouse.isLeftButtonPressed()) {
       this.playerBalloon.toggleDownUp();
       this.convergame.input.mouse.resetButtonState();
+      this.windSound.play();
     }
 
     this.playerBalloon.update(time);
@@ -107,11 +110,19 @@ function MainGameScene() {
     this.convergame.draw.text(1920-190+10, 40, '#000', 32, 'sans-serif', 'left', 'Time:');
     this.convergame.draw.text(1920-190+10+150, 80, '#000', 32, 'sans-serif', 'right', this.gameTime.toFixed(2));
 
+    var leftRightBtnString = 'Left';
+    if (this.playerBalloon.movingRight) {
+      leftRightBtnString = 'Right';
+    }
     this.convergame.draw.rectangle(1920-170, 1080*0.5, 150, 150, '#000', '#7ec066');
-    this.convergame.draw.text(1920-170+7+70, 1080*0.5+85, '#333', 32, 'sans-serif', 'center', 'Left/Right');
+    this.convergame.draw.text(1920-170+7+70, 1080*0.5+85, '#333', 32, 'sans-serif', 'center', leftRightBtnString);
 
+    var upDownBtnString = 'Down';
+    if (this.playerBalloon.movingUp) {
+      upDownBtnString = 'Up';
+    }
     this.convergame.draw.rectangle(1920-170, 1080*0.5+170, 150, 150, '#000', '#7ec066');
-    this.convergame.draw.text(1920-170+7+70, 1080*0.5+170+85, '#333', 32, 'sans-serif', 'center', 'Up/Down');
+    this.convergame.draw.text(1920-170+7+70, 1080*0.5+170+85, '#333', 32, 'sans-serif', 'center', upDownBtnString);
 
     // Render rock throwers
     for (var i = 0; i < this.rockThrowers.length; i++) {
