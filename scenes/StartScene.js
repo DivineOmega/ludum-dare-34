@@ -54,7 +54,7 @@ function StartScene() {
 
     this.convergame.draw.rectangle(1920-190, 0, 190, 1080-100, '#000', '#b2b2b2'); // building
 
-    this.convergame.draw.text(1920/2, 250, '#000', 64, 'sans-serif', 'center', 'Balloon Bullies');
+    this.convergame.draw.text(1920/2, 250, '#F00', 64, 'sans-serif', 'center', 'Balloon Bullies', true, 4, 4, '#622');
 
     this.convergame.draw.text(1920/2, 400, '#000', 32, 'sans-serif', 'center', 'You\'re just a balloon, but fools want to throw rocks at you.');
     this.convergame.draw.text(1920/2, 450, '#000', 32, 'sans-serif', 'center', 'Evade their malicious attempts to expediate your destruction.');
