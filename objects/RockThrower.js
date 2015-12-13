@@ -11,6 +11,8 @@ function RockThrower() {
 
   this.movingRight = true;
 
+  this.throwSound = new Audio('audio/throw.ogg');
+
   this.update = function(time) {
 
     // Don't update is balloon is destroyed
@@ -89,7 +91,7 @@ function RockThrower() {
 
       mainGameScene.rocks.push(rock);
 
-      mainGameScene.throwSound.play();
+      this.throwSound.play();
 
       this.throwTimer = 0;
     }
@@ -127,6 +129,9 @@ function RockThrower() {
     }
 
     this.x = Math.floor(Math.random()*(1920-190-20));
+
+    this.throwSound.currentTime = 0;
+    this.throwSound.pause();
   };
 
 }

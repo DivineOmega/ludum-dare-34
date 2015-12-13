@@ -13,7 +13,6 @@ function MainGameScene() {
 
   this.gameTime = 0;
 
-  this.throwSound = new Audio('audio/throw.ogg');
   this.balloonDestroySound = new Audio('audio/balloonDestroy.ogg');
 
   this.update = function(time) {
@@ -141,9 +140,6 @@ function MainGameScene() {
     this.rockThrowerLimitIncreaseTimer = 0;
 
     this.gameTime = 0;
-
-    mainGameScene.throwSound.currentTime = 0;
-    mainGameScene.throwSound.pause();
 
     mainGameScene.balloonDestroySound.currentTime = 0;
     mainGameScene.balloonDestroySound.pause();
