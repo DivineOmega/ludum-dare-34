@@ -22,7 +22,7 @@ function MainGameScene() {
 
     // Game over checking
     if (this.playerBalloon.destroyed && this.playerBalloon.y < -400 ) {
-      this.convergame.scene.changeScene(mainGameScene);
+      this.convergame.scene.changeScene(startScene);
     }
 
     if (!this.playerBalloon.destroyed) {
