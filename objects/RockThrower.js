@@ -129,6 +129,7 @@ function RockThrower() {
     }
 
     this.x = Math.floor(Math.random()*(1920-190-20));
+    this.y += Math.floor(Math.random()*50);
 
     this.throwSound.currentTime = 0;
     this.throwSound.pause();
