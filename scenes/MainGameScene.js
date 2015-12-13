@@ -82,11 +82,12 @@ function MainGameScene() {
     }
 
     // Check for rock balloon collision
+    var balloonHitRadius = this.playerBalloon.radius*0.80;
     for (i = 0; i < this.rocks.length; i++) {
-      if (this.rocks[i].x > this.playerBalloon.x-this.playerBalloon.radius &&
-          this.rocks[i].x < this.playerBalloon.x+this.playerBalloon.radius &&
-          this.rocks[i].y > this.playerBalloon.y-this.playerBalloon.radius &&
-          this.rocks[i].y < this.playerBalloon.y+this.playerBalloon.radius) {
+      if (this.rocks[i].x > this.playerBalloon.x-balloonHitRadius &&
+          this.rocks[i].x < this.playerBalloon.x+balloonHitRadius &&
+          this.rocks[i].y > this.playerBalloon.y-balloonHitRadius &&
+          this.rocks[i].y < this.playerBalloon.y+balloonHitRadius) {
 
         this.playerBalloon.destroy();
 
