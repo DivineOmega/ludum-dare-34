@@ -171,7 +171,7 @@ function MainGameScene() {
       this.rockThrowerLimitIncreaseTimerExpiration = 30;
     } else if (difficulty=='hard') {
       this.rockThrowerLimit = 4;
-      this.rockThrowerLimitIncreaseTimerExpiration = 15;
+      this.rockThrowerLimitIncreaseTimerExpiration = 20;
     } else if (difficulty=='extreme') {
       this.rockThrowerLimit = 5;
       this.rockThrowerLimitIncreaseTimerExpiration = 10;
