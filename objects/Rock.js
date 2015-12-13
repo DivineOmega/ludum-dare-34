@@ -34,7 +34,7 @@ function Rock() {
     var centreX = this.x;
     var centreY = this.y;
 
-    this.convergame.draw.circle(centreX, centreY, 7.5, '#000', '#CCC', 2.5);
+    this.convergame.draw.circle(centreX, centreY, 7.5, '#000', '#AAA', 2.5);
 
   };
 
