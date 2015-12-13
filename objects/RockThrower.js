@@ -134,4 +134,6 @@ function RockThrower() {
     this.throwSound.pause();
   };
 
+  this.throwTimer = Math.random()*4;
+
 }
