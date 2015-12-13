@@ -10,6 +10,7 @@
 
     <script src="convergame-engine/convergame.min.js"></script>
 
+    <script src="scenes/StartScene.js"></script>
     <script src="scenes/MainGameScene.js"></script>
 
     <script src="objects/Balloon.js"></script>
@@ -22,9 +23,10 @@
       var convergame = new Convergame(mainCanvas);
       convergame.init();
 
+      var startScene = new StartScene();
       var mainGameScene = new MainGameScene();
 
-      convergame.scene.changeScene(mainGameScene);
+      convergame.scene.changeScene(startScene);
 
       convergame.startMainGameLoop();
 

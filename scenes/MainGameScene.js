@@ -11,6 +11,8 @@ function MainGameScene() {
   this.rockThrowerLimitIncreaseTimer = 0;
   this.addNewRockThrowersTimer = 0;
 
+  this.rockThrowerLimitIncreaseTimerExpiration = 30;
+
   this.gameTime = 0;
 
   this.balloonDestroySound = new Audio('audio/balloonDestroy.ogg');
@@ -30,7 +32,7 @@ function MainGameScene() {
     // Increase rock thrower limit every so often
     this.rockThrowerLimitIncreaseTimer += time;
 
-    if(this.rockThrowerLimitIncreaseTimer > 30) {
+    if(this.rockThrowerLimitIncreaseTimer > this.rockThrowerLimitIncreaseTimerExpiration) {
       this.rockThrowerLimit++;
       this.rockThrowerLimitIncreaseTimer = 0;
     }
@@ -155,6 +157,25 @@ function MainGameScene() {
 
     mainGameScene.balloonDestroySound.currentTime = 0;
     mainGameScene.balloonDestroySound.pause();
+  };
+
+  this.setDifficulty = function(difficulty) {
+    if (difficulty=='casual') {
+      this.rockThrowerLimit = 1;
+      this.rockThrowerLimitIncreaseTimerExpiration = 60;
+    } else if (difficulty=='easy') {
+      this.rockThrowerLimit = 2;
+      this.rockThrowerLimitIncreaseTimerExpiration = 30;
+    } else if (difficulty=='normal') {
+      this.rockThrowerLimit = 3;
+      this.rockThrowerLimitIncreaseTimerExpiration = 30;
+    } else if (difficulty=='hard') {
+      this.rockThrowerLimit = 4;
+      this.rockThrowerLimitIncreaseTimerExpiration = 15;
+    } else if (difficulty=='extreme') {
+      this.rockThrowerLimit = 5;
+      this.rockThrowerLimitIncreaseTimerExpiration = 10;
+    }
   };
 
 }
