@@ -57,9 +57,9 @@ function StartScene() {
     this.convergame.draw.text(1920/2, 250, '#F00', 64, 'sans-serif', 'center', 'Balloon Bullies', true, 4, 4, '#622');
 
     this.convergame.draw.text(1920/2, 400, '#000', 32, 'sans-serif', 'center', 'You\'re just a balloon, but fools want to throw rocks at you.');
-    this.convergame.draw.text(1920/2, 450, '#000', 32, 'sans-serif', 'center', 'Evade their malicious attempts to expediate your destruction.');
+    this.convergame.draw.text(1920/2, 450, '#000', 32, 'sans-serif', 'center', 'Evade their malicious attempts to expedite your destruction.');
 
-    this.convergame.draw.text(1920/2, 550, '#000', 32, 'sans-serif', 'center', 'To begin, choose a difficulty from the windows of that bulding over there.');
+    this.convergame.draw.text(1920/2, 550, '#000', 32, 'sans-serif', 'center', 'To begin, choose a difficulty from the windows of that building over there.');
 
     this.convergame.draw.text(1920-190+10, 40, '#000', 32, 'sans-serif', 'left', 'Time:');
     this.convergame.draw.text(1920-190+10+150, 80, '#000', 32, 'sans-serif', 'right', mainGameScene.gameTime.toFixed(2));
